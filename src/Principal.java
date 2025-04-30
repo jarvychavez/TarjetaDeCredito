@@ -9,6 +9,11 @@ public class Principal {
         double limite = lectura.nextDouble();
         TarjetaDeCredito tarjeta = new TarjetaDeCredito(limite);
 
+        if (limite <= 0){
+            System.out.println("No se puede realizar la compra por saldo insuficiente. ");
+            return;
+        }
+
         int salir = 1;
         while (salir != 0){
             System.out.println("Eescriba la descripción de la compra: ");
@@ -30,7 +35,7 @@ public class Principal {
             }
         }
         System.out.println("*************************");
-        System.out.println("COMPRA REALIZADA:\n");
+        System.out.println("COMPRAS REALIZADA:\n");
         Collections.sort(tarjeta.getListaDeCompras());
 
         for (Compra compra : tarjeta.getListaDeCompras()){
